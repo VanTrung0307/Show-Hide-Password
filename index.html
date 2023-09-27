@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Show Hide Password</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #fc6060;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        padding: 50px;
+        border-radius: 20px;
+        border: 5px solid skyblue;
+      }
+
+      .pass {
+        border: 3px solid skyblue;
+        width: 14rem;
+        height: 3rem;
+        background: white;
+        border-radius: 5px;
+      }
+
+      #passwordInput {
+        height: 100%;
+        border: none;
+        padding: 0 10px;
+        outline: none;
+      }
+
+      #togglePassView {
+        height: 100%;
+        border: none;
+        background: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pass">
+        <input type="password" id="passwordInput" placeholder="Password" />
+        <button id="togglePassView" onclick="togglePassword()">
+          <i class="fa-solid fa-eye"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      let password = document.getElementById('passwordInput')
+      let togglePassView = document.getElementById('togglePassView')
+
+      const togglePassword = () => {
+        if (password.type == 'password') {
+          password.type = 'text'
+          togglePassView.innerHTML = '<i class="fa-solid fa-eye-slash"></i>'
+        } else if (password.type == 'text') {
+          password.type = 'password'
+          togglePassView.innerHTML = '<i class="fa-solid fa-eye"></i>'
+        }
+      }
+    </script>
+  </body>
+</html>
